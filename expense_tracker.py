@@ -8,9 +8,7 @@ FILENAME = "expenses.json"
 # ---------- File Handling ----------
 
 def load_expenses():
-    """
-    
-    """
+   
 
     try:
         with open(FILENAME) as f:
@@ -20,19 +18,18 @@ def load_expenses():
         return []
         
 def save_expenses(expenses):
-    """
     
-    """
     try:
         with open(FILENAME,"w") as f:
             json.dump(expenses,f)
     except(TypeError):
         print("types dont match in expenses")
     
-def generate_id(expenses):
-    """
+
+    # ---------- MAIN OPERATIONS ----------
     
-    """
+def generate_id(expenses):
+    
     if len(expenses)==0:
         return 1
     max_id =1
@@ -42,8 +39,6 @@ def generate_id(expenses):
 
 def add_expense(expenses: list) -> list:
     """
-    
-
     Create expense as a dict:
     {
         "id": <int>,
@@ -53,10 +48,10 @@ def add_expense(expenses: list) -> list:
         "note": <string>
     }
 
-   
     """
     new_expense ={}
     new_expense["id"]=generate_id(expenses)
+
     # Takes amount input
     while True:
         try:
